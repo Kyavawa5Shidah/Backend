@@ -1,2 +1,2 @@
-web: gunicorn career_guidance.wsgi
+web: gunicorn config.wsgi
 

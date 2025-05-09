@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Welcome to ECGS API
+{% endblock %}
+
+{% block content %}
+  <!-- Container for the main content -->
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <!-- Column to hold content -->
+      <div class="col-lg-8 col-md-10 col-12 text-center">
+        <h1 class="display-4 text-primary">Welcome to the ECGS API</h1>
+        <p class="lead text-muted mb-4">Your backend is ready and running. Access the documentation below.</p>
+
+        <!-- Links to Swagger and ReDoc -->
+        <div class="d-grid gap-2 d-sm-flex justify-content-center">
+          <a href="/swagger/" class="btn btn-primary btn-lg mb-2 mb-sm-0 me-sm-2 w-100 w-sm-auto">View Swagger Docs</a>
+          <a href="/redoc/" class="btn btn-secondary btn-lg mb-2 mb-sm-0 w-100 w-sm-auto">View ReDoc Docs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

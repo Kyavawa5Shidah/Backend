@@ -53,9 +53,16 @@ from rest_framework.authtoken.models import Token
 from django.db.models import Avg, Count, Sum, Max, Min
 from django.utils.timezone import now
 import csv
+
 User = get_user_model()
 
 
+from django.views.generic import TemplateView
+
+
+class HomeView(TemplateView):
+    template_name = "home/home.html"
+    
 # Load the career dataset
 def load_career_dataset():
     """Load the career dataset with descriptions, required skills, and industry types"""
