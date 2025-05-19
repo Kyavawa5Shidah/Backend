@@ -7,13 +7,22 @@ from rest_framework.routers import DefaultRouter
 from . import views
 from .views import SignUpView, verify_token, get_user_skills_assessment, GetLatestCareerPredictionView, GetJobListingsForCareerView, SignInView, get_csrf_token, logout_view, ensure_profile, current_user, TrackUserActivity, dashboard_summary, user_engagement_summary, export_prediction_report
 from .views import ProfileView, ProfileHeaderView, PersonalInfoView, SkillsView, InterestsView, EducationView, SaveCareerPredictionView
+from .views import SignUpView, verify_token, SignInView, get_csrf_token, logout_view, ensure_profile, UserProfileView, current_user, UserSkillsView, education, UserInterestsView, TrackUserActivity, dashboard_summary, user_engagement_summary, export_prediction_report
+from .views import ProfileView, ProfileHeaderView, PersonalInfoView, SkillsView, InterestsView, EducationView
+from .views import HomeView
 
 urlpatterns = [
+    path("", HomeView.as_view(), name="api-home"),
     path('trigger-scraping/', views.trigger_scraping, name='trigger-scraping'),
     path('jobs/', get_brighter_monday_jobs, name='brightermonday-jobs'),
     path('register/', register_user, name='register'),
     path('login/', TokenObtainPairView.as_view(), name='login'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('submit-assessment/', views.submit_assessment, name='submit_assessment'),
+    path('get-skills/', views.get_skills, name='get_skills'),
+    path('recommend-careers/', views.recommend_careers, name='recommend-careers'),
+    path('recommend-learning/', views.recommend_learning, name='recommend-learning'),
+    path('', views.home, name='home'),
     path('predict/', views.predict_career, name='predict_career'),
     path('signup/', SignUpView.as_view(), name='signup'),
     path('signin/', SignInView.as_view(), name='signin'),
